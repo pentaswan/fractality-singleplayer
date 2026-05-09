@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fractality</title>
+    <meta name="application-name" content="Bonk.io but raymarched on fractals!">
+    <meta name="msapplication-TileColor" content="#181818">
+    <meta name="theme-color" content="#181818">
+
+    <link href="./style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <canvas id="glCanvas"></canvas>
+
+    <!-- lib -->
+    <script src="./lib/interval.js"></script>
+    <script src="./lib/vector.js"></script>
+    <script src="./lib/matrix.js"></script>
+    <script src="./lib/util.js"></script>
+
+    <!-- game / simulation -->
+    <script src="./game/params.js"></script>
+    <script src="./game/sdf/mandlebulb.js"></script>
+    <script src="./game/init.js"></script>
+    <script src="./game/np.js"></script>
+    <script src="./game/simulate.js"></script>
+    <script src="./game/input.js"></script>
+
+    <!-- rendering + starting the game -->
+    <script src="./render/shader/shader.js"></script>
+    <script src="./render/shader/initShader.js"></script>
+    <script src="./render/camera.js"></script>
+    <script src="./render/render.js"></script>
+  </body>
+</html>
