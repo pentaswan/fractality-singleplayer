@@ -2,13 +2,15 @@ spawnPoint = new Vector(0, 0, 0);
 spawnRange = new Vector(0, 0, 0);
 marbleRadius = 0.32;
 deathBarrier = -3;
-const k = 0.4;
+deIsBound = true;
+const k = 1.5;//0.4;
+const deFac = 3;
 const vx = 3;
 const vy = 2;
 
 const vs_de = `
 vec3 twist(vec3 p) {
-    const float k = ${ k };
+    const float k = ${ k.toFixed(1) };
     float c = cos(k * p.y);
     float s = sin(k * p.y);
     return vec3(
@@ -24,7 +26,7 @@ float torus(vec3 p, vec2 t){
 }
 
 float de_world(vec4 pos) {
-    return torus(twist(pos.xyz), vec2(${vx.toFixed(1)}, ${vy.toFixed(1)}));
+    return torus(twist(pos.xyz), vec2(${vx.toFixed(1)}, ${vy.toFixed(1)})) / ${deFac.toFixed(1)};
 }`;
 
 function twist(p) {
@@ -45,5 +47,5 @@ function torus(p, t) {
 }
 
 function DE(pt) {
-    return torus(twist(pt), new Vector(vx, vy));
+    return torus(twist(pt), new Vector(vx, vy)) / deFac;
 }
